@@ -1,0 +1,22 @@
+<ul class="form-list" id="payment_form_<?php echo $this->getMethodCode() ?>" style="display:none;">
+    <li class="form-alt">
+        <p>
+            Interest Free* finance. Shop easy, Breathe easy
+        </p>
+    </li>    
+    <li class="form-alt">
+        <label for="<?php echo $this->getMethodCode() ?>_term" class="required"><em>*</em><?php echo $this->__('Skye Mastercard® Interest Term') ?></label>        
+        <div class="input-box">            
+            <?php if ($this->getCustomerProductOffer()) { ?>
+               <select id="<?php echo $this->getMethodCode() ?>_term" name="payment[additional_data]" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Credit Card Type')) ?>" class="required-entry">
+                    <option value="">--Please Select--</option>
+                    <?php $someObject = json_decode($this->getDefaultProductOffer()); foreach($someObject as $key => $value): ?>
+                    <option value="<?php echo $value->TransactionCode; ?>"><?php echo $value->Description; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            <?php } else { ?>                            
+                <p id="<?php echo $this->getMethodCode() ?>_term"><?php echo $this->getDefaultProductDescription() ?></p>
+            <?php } ?>
+        </div>
+    </li>
+</ul>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+		<Skye_Skyewidgets>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Skye_Skyewidgets>
+     </modules>
+</config>

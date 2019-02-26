@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<config>
+
+    <!-- Module Metadata -->
+    <modules>
+        <Skye_Skyepayments>
+            <version>skye_plugin_version_placeholder</version>
+        </Skye_Skyepayments>        
+    </modules>
+    <!-- End Module Metadata -->
+
+    <!-- Dependency Injection Configuration -->
+    <global>
+        <!-- <module root>/Helper/Data.php -->
+        <helpers>
+            <skyepayments>
+                <class>Skye_Skyepayments_Helper</class>
+            </skyepayments>            
+        </helpers>
+
+        <!-- Partial View Controllers -->
+        <blocks>
+            <skyepayments>
+                <!-- <module root>/[Form|Info]/Skyepayments.php -->
+                <class>Skye_Skyepayments_Block</class>
+            </skyepayments>            
+        </blocks>
+        <models>
+            <!-- <module root/Model/Paymentmethod.php -->
+            <skyepayments>
+                <class>Skye_Skyepayments_Model</class>
+            </skyepayments>            
+        </models>
+        <resources>
+            <!-- <module root/sql/skyepayments_setup/install-<version number>.php -->
+            <skyepayments_setup>
+                <setup>
+                    <module>Skye_Skyepayments</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </skyepayments_setup>
+        </resources>
+    </global>
+    <!-- End Dependency Injection Configuration -->
+
+    <!-- Payment Method Default Configuration Values -->
+    <default>
+        <payment>
+            <skyepayments>
+                <active>0</active>
+                <model>skyepayments/paymentmethod</model>
+                <skye_approved_order_status>skye_processed</skye_approved_order_status>
+                <title>Skye Mastercard®</title>
+                <allowspecific>0</allowspecific>
+                <payment_action>sale</payment_action>
+                <skyeonline_url></skyeonline_url>
+                <skyesoap_url></skyesoap_url>
+                <specificcountry>AU,NZ</specificcountry>
+                <merchant_number></merchant_number>
+                <operator_id></operator_id>
+                <operator_password></operator_password>
+                <default_product_offer></default_product_offer>
+                <default_product_description></default_product_description>
+                <credit_product>MyBuy_Online</credit_product>
+                <api_key></api_key>
+                <automatic_invoice>0</automatic_invoice> <!-- 0:No -->
+                <email_customer>1</email_customer>
+            </skyepayments>
+        </payment>
+        <skye>
+            <cron>
+                <pending_payment_timeout>5400</pending_payment_timeout> <!-- Not used yet -->
+            </cron>
+        </skye>
+    </default>
+    <!-- End Payment Method Default Configuration Values -->
+
+    <!-- Crontab configuration -->
+    <crontab>
+        <jobs>
+            <!-- <Skye_cancelSkyePendingOrders>
+                <schedule>
+                    <cron_expr>*/2 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>skyepayments/observer::cancelSkyePendingOrders</model>
+                </run>
+            </Skye_cancelSkyePendingOrders> -->
+        </jobs>
+    </crontab>
+    <!-- End Crontab configuration -->
+
+    <!-- Routing Configuration -->
+    <frontend>
+        <routers>
+            <skyepayments>
+                <use>standard</use>
+                <args>
+                    <module>Skye_Skyepayments</module>
+                    <frontName>skyepayments</frontName>
+                </args>
+            </skyepayments>
+        </routers>
+    </frontend>
+    <!-- End Routing Configuration -->
+</config>

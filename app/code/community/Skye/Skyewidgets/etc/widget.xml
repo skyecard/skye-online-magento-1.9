@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<widgets>
+  <skyewidgets_links type="skyewidgets/widget" translate="name description" module="skyewidgets">
+    <name>Skye price info widgets</name>
+    <description>Add and configure Skye price info widgets into your store.</description>
+    <parameters>
+      <merchant_id>
+        <visible>1</visible>
+        <label>Merchant Code</label>
+        <type>text</type>
+       </merchant_id>
+       <price_selector>
+        <visible>2</visible>
+        <label>Price Selector</label>
+        <type>text</type>
+        <default>div.price-info%20span.price</default>
+      </price_selector>
+      <element_selector>
+        <visible>3</visible>
+        <label>Element Selector</label>
+        <type>text</type>
+        <default>div.price-box</default>
+      </element_selector>
+      <promo_term>
+        <visible>4</visible>
+        <label>Default promote terms</label>
+        <type>text</type>
+        <tooltip>Add term if you want your widget to use a specific term all the time.</tooltip>
+      </promo_term>
+      <calculate_mode>
+        <visible>5</visible>
+        <label>Calculate Mode</label>
+        <required>1</required>
+        <type>multiselect</type>
+        <source_model>skyewidgets/options</source_model>
+      </calculate_mode>
+    </parameters>
+  </skyewidgets_links>
+</widgets>
